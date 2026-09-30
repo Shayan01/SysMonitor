@@ -1,0 +1,22 @@
+$Recycle.Bin
+$WinREAgent
+appverifUI.dll
+Config.Msi
+Documents and Settings
+DumpStack.log
+DumpStack.log.tmp
+hiberfil.sys
+Intel
+IOJGPR
+jetbraincrack
+pagefile.sys
+PerfLogs
+Program Files
+Program Files (x86)
+ProgramData
+Recovery
+swapfile.sys
+System Volume Information
+Users
+vfcompat.dll
+Windows

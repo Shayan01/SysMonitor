@@ -1,6 +1,7 @@
 object Form1: TForm1
   Left = 0
   Top = 0
+  BiDiMode = bdRightToLeft
   Caption = 'Form1'
   ClientHeight = 406
   ClientWidth = 692
@@ -11,22 +12,14 @@ object Form1: TForm1
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  ParentBiDiMode = False
   PixelsPerInch = 96
   TextHeight = 13
-  object btn1: TBitBtn
-    Left = 400
-    Top = 24
-    Width = 75
-    Height = 25
-    Caption = 'btn1'
-    TabOrder = 0
-    OnClick = btn1Click
-  end
   object scgpgrpbx1: TscGPGroupBox
     Left = 8
     Top = 8
     Width = 225
-    Height = 326
+    Height = 247
     BiDiMode = bdRightToLeft
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBtnText
@@ -36,7 +29,8 @@ object Form1: TForm1
     ParentBiDiMode = False
     ParentFont = False
     FluentUIOpaque = False
-    TabOrder = 1
+    TabOrder = 0
+    Visible = False
     Alignment = taCenter
     Caption = 'RAM'
     DrawTextMode = scdtmGDI
@@ -57,7 +51,7 @@ object Form1: TForm1
     StorePaintBuffer = True
     object scgprgrsbr1: TscGPProgressBar
       Left = 8
-      Top = 221
+      Top = 143
       Width = 210
       Height = 9
       FluentUIOpaque = True
@@ -75,10 +69,10 @@ object Form1: TForm1
       Value = 0
     end
     object scgpmtr1: TscGPMeter
-      Left = 24
-      Top = 23
-      Width = 177
-      Height = 177
+      Left = 56
+      Top = 20
+      Width = 114
+      Height = 114
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -106,7 +100,7 @@ object Form1: TForm1
       FormatStrLabel = '#0'
       FrameColor = clBtnText
       FrameShadow = False
-      FillColor = clWindow
+      FillColor = clWhite
       FillColorAlpha = 200
       FillGradientAngle = 90
       MaxValue = 100.000000000000000000
@@ -126,8 +120,8 @@ object Form1: TForm1
       ShowImage = True
     end
     object scgplbl1: TscGPLabel
-      Left = 8
-      Top = 240
+      Left = 7
+      Top = 158
       Width = 210
       Height = 23
       BiDiMode = bdRightToLeft
@@ -169,8 +163,8 @@ object Form1: TForm1
       Caption = #1601#1600#1600#1600#1600#1600#1600#1600#1600#1590#1600#1600#1600#1575#1740' '#1705#1600#1604#1740' :'
     end
     object scgplbl2: TscGPLabel
-      Left = 8
-      Top = 296
+      Left = 7
+      Top = 214
       Width = 210
       Height = 23
       BiDiMode = bdRightToLeft
@@ -212,8 +206,8 @@ object Form1: TForm1
       Caption = #1601#1590#1575#1740' '#1575#1587#1578#1601#1575#1583#1607' '#1588#1583#1607' :'
     end
     object scgplbl3: TscGPLabel
-      Left = 8
-      Top = 268
+      Left = 7
+      Top = 186
       Width = 210
       Height = 23
       BiDiMode = bdRightToLeft
@@ -255,9 +249,223 @@ object Form1: TForm1
       Caption = #1601#1600#1600#1600#1600#1600#1600#1600#1590#1600#1600#1600#1600#1600#1600#1600#1600#1575#1740' '#1570#1586#1575#1583' :'
     end
   end
+  object scgrpbx1: TscGroupBox
+    Left = 239
+    Top = 8
+    Width = 289
+    Height = 377
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Vazir'
+    Font.Style = []
+    ParentFont = False
+    FluentUIOpaque = False
+    TabOrder = 1
+    FramePosition = scgfpDefault
+    CustomImageIndex = -1
+    CustomImageDisabledIndex = -1
+    CustomCheckedImageIndex = -1
+    CustomCheckedImageHotIndex = -1
+    CustomCheckedImagePressedIndex = -1
+    CustomCheckedImageDisabledIndex = -1
+    CustomUnCheckedImageIndex = -1
+    CustomUnCheckedImageHotIndex = -1
+    CustomUnCheckedImagePressedIndex = -1
+    CustomUnCheckedImageDisabledIndex = -1
+    Alignment = taLeftJustify
+    Caption = #1606#1605#1575#1740#1588' '#1604#1740#1587#1578' '#1601#1575#1740#1604
+    ImageIndex = -1
+    ShowCheckBox = False
+    Checked = False
+    AutoEnabledControls = False
+    GlowEffect.Enabled = False
+    GlowEffect.Color = clHighlight
+    GlowEffect.AlphaValue = 255
+    GlowEffect.GlowSize = 7
+    GlowEffect.Offset = 0
+    GlowEffect.Intensive = True
+    GlowEffect.StyleColors = True
+    ImageGlow = True
+    StorePaintBuffer = True
+    object btn1: TBitBtn
+      Left = 176
+      Top = 30
+      Width = 110
+      Height = 44
+      Caption = #1575#1606#1578#1582#1575#1576' '#1605#1587#1740#1585
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Vazir'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+      OnClick = btn1Click
+    end
+    object scListBox1: TscListBox
+      Left = 3
+      Top = 80
+      Width = 276
+      Height = 289
+      FluentUIOpaque = False
+      ItemIndex = -1
+      ImageIndex = -1
+      WordBreak = False
+      LineColor = clBtnFace
+      ShowLines = False
+      SelectionStyle = scstStyled
+      ShowFocusRect = True
+      SelectionColor = clNone
+      SelectionTextColor = clHighlightText
+      TabOrder = 1
+    end
+    object btn2: TscGPGlyphButton
+      Left = 3
+      Top = 33
+      Width = 41
+      Height = 41
+      FluentUIOpaque = False
+      TabOrder = 2
+      TabStop = True
+      OnClick = btn2Click
+      Animation = False
+      Badge.Color = clRed
+      Badge.ColorAlpha = 255
+      Badge.Font.Charset = DEFAULT_CHARSET
+      Badge.Font.Color = clWhite
+      Badge.Font.Height = -11
+      Badge.Font.Name = 'Tahoma'
+      Badge.Font.Style = [fsBold]
+      Badge.Visible = False
+      Caption = 'btn2'
+      CaptionCenterAlignment = False
+      CanFocused = True
+      CustomDropDown = False
+      DrawTextMode = scdtmGDI
+      FluentLightEffect = False
+      Layout = blGlyphLeft
+      TransparentBackground = True
+      ColorValue = clRed
+      Options.NormalColor = clBtnText
+      Options.HotColor = clBtnText
+      Options.PressedColor = clBtnText
+      Options.FocusedColor = clBtnFace
+      Options.DisabledColor = clBtnText
+      Options.NormalColor2 = clNone
+      Options.HotColor2 = clNone
+      Options.PressedColor2 = clNone
+      Options.FocusedColor2 = clNone
+      Options.DisabledColor2 = clNone
+      Options.NormalColorAlpha = 10
+      Options.HotColorAlpha = 20
+      Options.PressedColorAlpha = 30
+      Options.FocusedColorAlpha = 255
+      Options.DisabledColorAlpha = 5
+      Options.NormalColor2Alpha = 255
+      Options.HotColor2Alpha = 255
+      Options.PressedColor2Alpha = 255
+      Options.FocusedColor2Alpha = 255
+      Options.DisabledColor2Alpha = 255
+      Options.FrameNormalColor = clBtnText
+      Options.FrameHotColor = clBtnText
+      Options.FramePressedColor = clBtnText
+      Options.FrameFocusedColor = clHighlight
+      Options.FrameDisabledColor = clBtnText
+      Options.FrameWidth = 2
+      Options.FrameNormalColorAlpha = 70
+      Options.FrameHotColorAlpha = 100
+      Options.FramePressedColorAlpha = 150
+      Options.FrameFocusedColorAlpha = 255
+      Options.FrameDisabledColorAlpha = 30
+      Options.FontNormalColor = clBtnText
+      Options.FontHotColor = clBtnText
+      Options.FontPressedColor = clBtnText
+      Options.FontFocusedColor = clBtnText
+      Options.FontDisabledColor = clBtnShadow
+      Options.ShapeFillGradientAngle = 90
+      Options.ShapeFillGradientPressedAngle = -90
+      Options.ShapeFillGradientColorOffset = 25
+      Options.ShapeCornerRadius = 10
+      Options.ShapeStyle = scgpRect
+      Options.ShapeStyleLineSize = 0
+      Options.ArrowSize = 9
+      Options.ArrowAreaSize = 0
+      Options.ArrowType = scgpatDefault
+      Options.ArrowThickness = 2
+      Options.ArrowThicknessScaled = False
+      Options.ArrowNormalColor = clBtnText
+      Options.ArrowHotColor = clBtnText
+      Options.ArrowPressedColor = clBtnText
+      Options.ArrowFocusedColor = clBtnText
+      Options.ArrowDisabledColor = clBtnText
+      Options.ArrowNormalColorAlpha = 200
+      Options.ArrowHotColorAlpha = 255
+      Options.ArrowPressedColorAlpha = 255
+      Options.ArrowFocusedColorAlpha = 200
+      Options.ArrowDisabledColorAlpha = 125
+      Options.StyleColors = True
+      Options.PressedHotColors = False
+      GlyphOptions.NormalColor = clBtnText
+      GlyphOptions.HotColor = clBtnText
+      GlyphOptions.PressedColor = clBtnText
+      GlyphOptions.FocusedColor = clBtnText
+      GlyphOptions.DisabledColor = clBtnText
+      GlyphOptions.NormalColorAlpha = 200
+      GlyphOptions.HotColorAlpha = 255
+      GlyphOptions.PressedColorAlpha = 255
+      GlyphOptions.FocusedColorAlpha = 255
+      GlyphOptions.DisabledColorAlpha = 100
+      GlyphOptions.Kind = scgpbgkFileSave
+      GlyphOptions.Thickness = 2
+      GlyphOptions.ThicknessScaled = False
+      GlyphOptions.Size = 0
+      GlyphOptions.StyleColors = True
+      TextMargin = -1
+      WidthWithCaption = 0
+      WidthWithoutCaption = 0
+      SplitButton = False
+      RepeatClick = False
+      RepeatClickInterval = 100
+      ShowGalleryMenuFromTop = False
+      ShowGalleryMenuFromRight = False
+      ShowMenuArrow = True
+      ShowFocusRect = True
+      Down = False
+      GroupIndex = 0
+      AllowAllUp = False
+      ToggleMode = False
+    end
+  end
   object tmrCheckRAMStatus: TTimer
+    Interval = 1
     OnTimer = tmrCheckRAMStatusTimer
-    Left = 560
-    Top = 56
+    Left = 616
+    Top = 16
+  end
+  object scSelectPathDialog1: TscSelectPathDialog
+    DialogClientWidth = 0
+    DialogClientHeight = 0
+    Scaled = True
+    ShowHiddenObjects = False
+    AnimationOnControls = False
+    ShowCreateButton = True
+    Left = 616
+    Top = 64
+  end
+  object scsvdlg1: TscSaveDialog
+    AnimationOnControls = False
+    ShowThumbnails = True
+    ShowHiddenFiles = False
+    OverwritePromt = False
+    DialogClientWidth = 0
+    DialogClientHeight = 0
+    CheckFileExists = True
+    MultiSelection = False
+    Filter = 'All files|*.*'#13#10'Text files|*.txt'
+    FilterIndex = 1
+    Scaled = True
+    Left = 616
+    Top = 128
   end
 end

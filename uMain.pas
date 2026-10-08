@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
   Vcl.StdCtrls, Vcl.Buttons, scControls, scGPControls, scGPMeters, Vcl.ExtCtrls,
-  scOpenFileDialog, scSelectPathDialog;
+  scOpenFileDialog, scSelectPathDialog, System.Win.ComObj, Winapi.ActiveX;
 
 type
   TRamStatusResult = record
@@ -44,6 +44,40 @@ var
 implementation
 
 {$R *.dfm}
+
+function GetCPUTemperature: Double;
+var
+  FSWbemLocator: OLEVariant;
+  FWMIServices: OLEVariant;
+  FWbemObjectSet: OLEVariant;
+  FWbemObject: OLEVariant;
+  Enum: IEnumVariant;
+  Fetched: LongWord;
+  TempKelvin: Double;
+begin
+  Result := 0;
+  try
+  // green 0<= temp <= 65
+  // yellow 65< temp <= 85
+  // red 85< temp
+    // مقداردهی اولیه WMI
+    FSWbemLocator := CreateOleObject('WbemScripting.SWbemLocator');
+    FWMIServices := FSWbemLocator.ConnectServer('localhost', 'root\WMI', '', '');
+    FWbemObjectSet := FWMIServices.ExecQuery('SELECT * FROM MSAcpi_ThermalZoneTemperature');
+    Enum := IUnknown(FWbemObjectSet._NewEnum) as IEnumVariant;
+
+    // خواندن مقدار دما
+    if Enum.Next(1, FWbemObject, Fetched) = S_OK then
+    begin
+      TempKelvin := FWbemObject.CurrentTemperature;
+      // دمای WMI بر حسب کلوین ضرب در ۱۰ است
+      Result := (TempKelvin - 2732) / 10;
+    end;
+  except
+    // در صورت عدم پشتیبانی مادربرد یا دسترسی محدود
+    Result := -1;
+  end;
+end;
 
 function GetFiles(DirectoryWithFileNamePatern: string): TSearchRecArray;
 var
@@ -140,6 +174,7 @@ end;
 procedure TForm1.tmrCheckRAMStatusTimer(Sender: TObject);
 begin
   ShowRAMStatus;
+  Caption := 'CPU Temp: ' + FloatToStrF(GetCPUTemperature, ffFixed, 4, 1) + ' °C'
 end;
 
 end.

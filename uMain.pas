@@ -125,10 +125,15 @@ procedure TForm1.btn1Click(Sender: TObject);
 var
   SearchRecArray: TSearchRecArray;
   I: Integer;
+  Path: string;
 begin
   if scSelectPathDialog1.Execute then
   begin
-    SearchRecArray := GetFiles(scSelectPathDialog1.Path + '*.*');
+    Path := scSelectPathDialog1.Path;
+    if Path[Path.Length] <> '\' then
+      Path := Path + '\';
+    Path := Path + '*.*';
+    SearchRecArray := GetFiles(Path);
     scListBox1.Clear;
     for I := Low(SearchRecArray) to High(SearchRecArray) do
       scListBox1.Items.Add(SearchRecArray[I].Name);
@@ -137,9 +142,9 @@ end;
 
 procedure TForm1.btn2Click(Sender: TObject);
 begin
-  scsvdlg1.Filter:='All Files|*.*|Text Files|*.txt';
-if scsvdlg1.Execute then
-   scListBox1.Items.SaveToFile(scsvdlg1.FileName);
+  scsvdlg1.Filter := 'All Files|*.*|Text Files|*.txt';
+  if scsvdlg1.Execute then
+    scListBox1.Items.SaveToFile(scsvdlg1.FileName);
 end;
 
 procedure TForm1.ShowRAMStatus;
